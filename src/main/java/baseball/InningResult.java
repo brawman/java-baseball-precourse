@@ -10,7 +10,7 @@ public class InningResult {
 		this.ballCount = 0;
 	}
 
-	public InningResult(int strikeCount, int ballCount) {
+	private InningResult(int strikeCount, int ballCount) {
 		this.strikeCount = strikeCount;
 		this.ballCount = ballCount;
 	}
@@ -43,5 +43,9 @@ public class InningResult {
 		if (play.isBall()) {
 			this.ballCount += 1;
 		}
+	}
+
+	public boolean isThreeStrike() {
+		return this.strikeCount == 3;
 	}
 }

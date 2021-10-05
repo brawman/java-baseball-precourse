@@ -29,11 +29,11 @@ public class Balls {
 		}
 
 		ArrayList<Ball> ballList = new ArrayList<>();
-		int index = 1;
+		int index = 3;
 		while (balls != 0) {
 			ballList.add(new Ball(balls % 10, index));
 			balls = balls / 10;
-			index += 1;
+			index -= 1;
 		}
 		validate(ballList);
 		this.balls = ballList;
