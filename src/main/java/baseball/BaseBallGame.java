@@ -27,6 +27,10 @@ public class BaseBallGame {
 		while(union.size() < 3) {
 			union.add(Randoms.pickNumberInRange(1, 9));
 		}
+		// 1. 이부분에서 순서가 보장되지 않는듯 함
+		// 2. 게임 조건 따로 분리하기
+		// 3. 리팩토링(인터페이스화)
+		// 4. 캐싱
 		return new ArrayList<>(union);
 	}
 
