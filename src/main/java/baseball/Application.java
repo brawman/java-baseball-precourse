@@ -1,7 +1,14 @@
 package baseball;
 
 public class Application {
-    public static void main(String[] args) {
-        // TODO 숫자 야구 게임 구현
-    }
+	public static void main(String[] args) {
+		BaseBallGame.ready();
+		while (true) {
+			InningResult result = BaseBallGame.play(BaseBallUI.userGameStrategy());
+			BaseBallUI.drawGameResult(result);
+			if (BaseBallGame.isEnd() && BaseBallGame.stopOrRestart(BaseBallUI.isGameContinue())) {
+				break;
+			}
+		}
+	}
 }
