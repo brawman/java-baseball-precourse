@@ -30,4 +30,8 @@ public class Ball {
 	public boolean matchPosition(int position) {
 		return this.position == position;
 	}
+
+	public BallCount play(Ball other) {
+		return BallCount.find(this.matchValue(other), this.matchPosition(other));
+	}
 }
