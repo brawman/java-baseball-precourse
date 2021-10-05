@@ -21,39 +21,23 @@ public class BallTest {
 	}
 
 	@Test
-	@DisplayName("같은 값인지 확인")
-	void matchValue() {
-		Ball ball = new Ball(2, 1);
-		assertThat(ball.matchValue(new Ball(1, 1))).isFalse();
-		assertThat(ball.matchValue(new Ball(2, 1))).isTrue();
-	}
-
-	@Test
-	@DisplayName("같은 위치인지 확인")
-	void matchPositon() {
-		Ball ball = new Ball(2, 1);
-		assertThat(ball.matchPosition(new Ball(2, 2))).isFalse();
-		assertThat(ball.matchPosition(new Ball(2, 1))).isTrue();
-	}
-
-	@Test
 	@DisplayName("스트라이크")
 	void strike() {
-		Ball ball = new Ball(2,1);
-		assertThat(ball.play(new Ball(2,1))).isEqualTo(BallCount.STRIKE);
+		Ball ball = new Ball(2, 1);
+		assertThat(ball.play(new Ball(2, 1))).isEqualTo(BallCount.STRIKE);
 	}
 
 	@Test
 	@DisplayName("볼")
 	void ball() {
-		Ball ball = new Ball(2,1);
-		assertThat(ball.play(new Ball(2,2))).isEqualTo(BallCount.BALL);
+		Ball ball = new Ball(2, 1);
+		assertThat(ball.play(new Ball(2, 2))).isEqualTo(BallCount.BALL);
 	}
 
 	@Test
 	@DisplayName("낫싱")
 	void nothing() {
-		Ball ball = new Ball(2,1);
-		assertThat(ball.play(new Ball(1,3))).isEqualTo(BallCount.NOTHING);
+		Ball ball = new Ball(2, 1);
+		assertThat(ball.play(new Ball(1, 3))).isEqualTo(BallCount.NOTHING);
 	}
 }

@@ -15,23 +15,30 @@ public class Ball {
 		this.position = position;
 	}
 
-	public boolean matchValue(Ball other) {
-		return other.matchValue(this.number);
+	private boolean matchValue(Ball other) {
+		return this.number == other.number;
 	}
 
-	public boolean matchValue(int number) {
-		return this.number == number;
-	}
-
-	public boolean matchPosition(Ball other) {
-		return other.matchPosition(this.position);
-	}
-
-	public boolean matchPosition(int position) {
-		return this.position == position;
+	private boolean matchPosition(Ball other) {
+		return this.position == other.position;
 	}
 
 	public BallCount play(Ball other) {
 		return BallCount.find(this.matchValue(other), this.matchPosition(other));
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Ball ball = (Ball)o;
+		return number == ball.number;
+	}
+
+	@Override
+	public int hashCode() {
+		return number;
 	}
 }
