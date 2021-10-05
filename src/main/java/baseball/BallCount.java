@@ -1,12 +1,27 @@
 package baseball;
 
 public enum BallCount {
-	STRIKE(true, true),
-	BALL(true, false),
-	NOTHING(false, false);
+	STRIKE(true, true) {
+		@Override
+		public boolean match(boolean isSameNumber, boolean isSamePosition) {
+			return this.isSameCondition(isSameNumber, isSamePosition);
+		}
+	},
+	BALL(true, false) {
+		@Override
+		public boolean match(boolean isSameNumber, boolean isSamePosition) {
+			return this.isSameCondition(isSameNumber, isSamePosition);
+		}
+	},
+	NOTHING(false, false) {
+		@Override
+		public boolean match(boolean isSameNumber, boolean isSamePosition) {
+			return this.isSameNumber == isSameNumber;
+		}
+	};
 
-	private final boolean isSameNumber;
-	private final boolean isSamePosition;
+	protected final boolean isSameNumber;
+	protected final boolean isSamePosition;
 
 	BallCount(boolean isSameNumber, boolean isSamePosition) {
 		this.isSameNumber = isSameNumber;
@@ -22,7 +37,17 @@ public enum BallCount {
 		throw new IllegalArgumentException("적절한 볼카운트 결과를 찾지 못했습니다.");
 	}
 
-	public boolean match(boolean isSameNumber, boolean isSamePosition) {
+	protected boolean isSameCondition(boolean isSameNumber, boolean isSamePosition) {
 		return this.isSameNumber == isSameNumber && this.isSamePosition == isSamePosition;
+	}
+
+	abstract public boolean match(boolean isSameNumber, boolean isSamePosition);
+
+	public boolean isStrike() {
+		return this == STRIKE;
+	}
+
+	public boolean isBall() {
+		return this == BALL;
 	}
 }

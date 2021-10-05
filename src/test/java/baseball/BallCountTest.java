@@ -23,5 +23,6 @@ public class BallCountTest {
 	@DisplayName("낫싱")
 	void nothing() {
 		assertThat(BallCount.find(false, false)).isEqualTo(BallCount.NOTHING);
+		assertThat(BallCount.find(false, true)).isEqualTo(BallCount.NOTHING);
 	}
 }
