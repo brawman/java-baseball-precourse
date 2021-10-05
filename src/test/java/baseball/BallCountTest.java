@@ -1,7 +1,8 @@
-package com.nextstep.baseball;
+package baseball;
 
 import static org.assertj.core.api.Assertions.*;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,7 @@ public class BallCountTest {
 	@Test
 	@DisplayName("스트라이크")
 	void strike() {
-		assertThat(BallCount.find(true, true)).isEqualTo(BallCount.STRIKE);
+		Assertions.assertThat(BallCount.find(true, true)).isEqualTo(BallCount.STRIKE);
 	}
 
 	@Test

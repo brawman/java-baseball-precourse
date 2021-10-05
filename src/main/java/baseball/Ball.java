@@ -1,4 +1,4 @@
-package com.nextstep.baseball;
+package baseball;
 
 public class Ball {
 	private final int number;

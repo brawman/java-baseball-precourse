@@ -1,4 +1,4 @@
-package com.nextstep.baseball;
+package baseball;
 
 import static org.assertj.core.api.Assertions.*;
 

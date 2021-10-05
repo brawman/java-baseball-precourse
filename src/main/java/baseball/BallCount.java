@@ -1,4 +1,4 @@
-package com.nextstep.baseball;
+package baseball;
 
 public enum BallCount {
 	STRIKE(true, true),
