@@ -9,8 +9,13 @@ public class Application {
 		BaseballGame.ready();
 		while (!BaseballGame.isEnd()
 			|| BaseballGame.stopOrRestart(BaseballUI.isGameContinue()) == BaseballGame.RESTART) {
-			InningResult result = BaseballGame.play(BaseballUI.userGameStrategy());
-			BaseballUI.drawGameResult(result);
+			try {
+				InningResult result = BaseballGame.play(BaseballUI.userGameStrategy());
+				BaseballUI.drawGameResult(result);
+
+			} catch(IllegalArgumentException exception) {
+				System.err.println("[ERROR]" + exception.getMessage());
+			}
 		}
 	}
 }
