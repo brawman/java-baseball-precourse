@@ -9,15 +9,14 @@ public class Application {
 		try {
 			InningResult result = BaseballGame.play(BaseballUI.userGameStrategy());
 			BaseballUI.drawGameResult(result);
-		} catch(IllegalArgumentException exception) {
+		} catch (IllegalArgumentException exception) {
 			System.err.println("[ERROR]" + exception.getMessage());
 		}
 	}
 
 	public static void main(String[] args) {
 		BaseballGame.ready();
-		while (!BaseballGame.isEnd()
-			|| BaseballGame.stopOrRestart(BaseballUI.isGameContinue()) == BaseballGame.RESTART) {
+		while (!BaseballGame.isEnd() || !BaseballGame.isStop(BaseballUI.isGameContinue())) {
 			playGameWithExceptionHandler();
 		}
 	}

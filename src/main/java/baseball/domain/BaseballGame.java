@@ -10,8 +10,6 @@ import nextstep.utils.Randoms;
 
 public class BaseballGame {
 	public static final String INVALID_INPUT_OF_END_RESTART = "종료나 재시작을 위해 올바른 입력을 넣어주세요.";
-	public static final boolean STOP = true;
-	public static final boolean RESTART = false;
 	private static Balls balls;
 	private static boolean isEnd;
 
@@ -37,14 +35,14 @@ public class BaseballGame {
 		return new ArrayList<>(union);
 	}
 
-	public static boolean stopOrRestart(String gameContinue) {
+	public static boolean isStop(String gameContinue) {
 		if (gameContinue.equals(BaseballRule.BASEBALL_STOP_CONDITION)) {
-			return STOP;
+			return true;
 		}
 
 		if (gameContinue.equals(BaseballRule.BASEBALL_RESTART_CONDITION)) {
 			ready();
-			return RESTART;
+			return false;
 		}
 		throw new IllegalArgumentException(INVALID_INPUT_OF_END_RESTART);
 	}
