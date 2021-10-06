@@ -1,18 +1,24 @@
-package baseball;
+package baseball.domain;
 
 public class Ball {
+	public static final String INVALID_NUMBER_SCOPE = "가 1 ~ 9까지의 범위를 벗어났습니다.";
+	public static final String INVALID_POSITION_SCOPE = "가 1 ~ 3까지의 위치를 벗어났습니다.";
 	private final int number;
 	private final int position;
 
 	public Ball(int number, int position) {
-		if (number < 1 || number > 9) {
-			throw new IllegalArgumentException(number + "가 1 ~ 9까지의 범위를 벗어났습니다.");
-		}
-		if (position < 1 || position > 3) {
-			throw new IllegalArgumentException(position + "가 1 ~ 3까지의 위치를 벗어났습니다.");
-		}
+		validate(number, position);
 		this.number = number;
 		this.position = position;
+	}
+
+	private void validate(int number, int position) {
+		if (number < BaseballRule.BASEBALL_NUMBER_MIN || number > BaseballRule.BASEBALL_NUMBER_MAX) {
+			throw new IllegalArgumentException(number + INVALID_NUMBER_SCOPE);
+		}
+		if (position < BaseballRule.BASEBALL_POSITION_MIN || position > BaseballRule.BASEBALL_POSITION_MAX) {
+			throw new IllegalArgumentException(position + INVALID_POSITION_SCOPE);
+		}
 	}
 
 	private boolean matchValue(Ball other) {

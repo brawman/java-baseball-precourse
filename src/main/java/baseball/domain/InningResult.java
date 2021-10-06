@@ -1,7 +1,6 @@
-package baseball;
+package baseball.domain;
 
 public class InningResult {
-
 	private int strikeCount;
 	private int ballCount;
 

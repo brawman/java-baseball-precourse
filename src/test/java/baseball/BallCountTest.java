@@ -6,6 +6,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import baseball.domain.BallCount;
+
 public class BallCountTest {
 	@Test
 	@DisplayName("스트라이크")

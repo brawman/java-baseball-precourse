@@ -1,14 +1,16 @@
 package baseball;
 
+import baseball.domain.BaseballGame;
+import baseball.domain.InningResult;
+import baseball.ui.BaseballUI;
+
 public class Application {
 	public static void main(String[] args) {
-		BaseBallGame.ready();
-		while (true) {
-			InningResult result = BaseBallGame.play(BaseBallUI.userGameStrategy());
-			BaseBallUI.drawGameResult(result);
-			if (BaseBallGame.isEnd() && BaseBallGame.stopOrRestart(BaseBallUI.isGameContinue())) {
-				break;
-			}
+		BaseballGame.ready();
+		while (!BaseballGame.isEnd()
+			|| BaseballGame.stopOrRestart(BaseballUI.isGameContinue()) == BaseballGame.RESTART) {
+			InningResult result = BaseballGame.play(BaseballUI.userGameStrategy());
+			BaseballUI.drawGameResult(result);
 		}
 	}
 }

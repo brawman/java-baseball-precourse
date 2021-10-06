@@ -1,4 +1,4 @@
-package baseball;
+package baseball.domain;
 
 public enum BallCount {
 	STRIKE(true, true) {
@@ -20,6 +20,7 @@ public enum BallCount {
 		}
 	};
 
+	public static final String NOT_FOUND_BALL_COUNT = "적절한 볼카운트 결과를 찾지 못했습니다.";
 	protected final boolean isSameNumber;
 	protected final boolean isSamePosition;
 
@@ -29,12 +30,16 @@ public enum BallCount {
 	}
 
 	public static BallCount find(boolean isSameNumber, boolean isSamePosition) {
-		for (BallCount ballCount : BallCount.values()) {
-			if (ballCount.match(isSameNumber, isSamePosition)) {
-				return ballCount;
-			}
+		int index = 0;
+		BallCount[] ballCounts = BallCount.values();
+
+		while (!ballCounts[index].match(isSameNumber, isSamePosition) && index < ballCounts.length) {
+			index += 1;
 		}
-		throw new IllegalArgumentException("적절한 볼카운트 결과를 찾지 못했습니다.");
+		if (index >= ballCounts.length) {
+			throw new IllegalArgumentException(NOT_FOUND_BALL_COUNT);
+		}
+		return ballCounts[index];
 	}
 
 	protected boolean isSameCondition(boolean isSameNumber, boolean isSamePosition) {

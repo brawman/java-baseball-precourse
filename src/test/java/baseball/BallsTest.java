@@ -5,6 +5,9 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import baseball.domain.Balls;
+import baseball.domain.InningResult;
+
 public class BallsTest {
 	@Test
 	@DisplayName("숫자는 3개로 이뤄져있다.")

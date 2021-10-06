@@ -5,6 +5,9 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import baseball.domain.Ball;
+import baseball.domain.BallCount;
+
 public class BallTest {
 	@Test
 	@DisplayName("숫자의 범위는 1 ~ 9")
