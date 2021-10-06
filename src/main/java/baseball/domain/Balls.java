@@ -8,7 +8,7 @@ import baseball.utils.BallListGenerator;
 
 public class Balls {
 	public static final String INVALID_NUMBER_COUNT = "숫자의 갯수가 3이 아닙니다.";
-	public static final String DUPLICATE_NUMBER = "중독된 숫자가 있습니다.";
+	public static final String DUPLICATE_NUMBER = "중복된 숫자가 있습니다.";
 	private final List<Ball> balls;
 
 	public Balls(List<Ball> balls) {
