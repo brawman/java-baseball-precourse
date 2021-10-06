@@ -1,7 +1,7 @@
 package baseball;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,8 +23,8 @@ public class BaseBallGame {
 	}
 
 	private static List<Integer> makeRandomBallNumbers() {
-		Set<Integer> union = new HashSet<>();
-		while(union.size() < 3) {
+		Set<Integer> union = new LinkedHashSet<>();
+		while (union.size() < 3) {
 			union.add(Randoms.pickNumberInRange(1, 9));
 		}
 		return new ArrayList<>(union);
@@ -51,7 +51,7 @@ public class BaseBallGame {
 
 	public static InningResult play(String numbers) {
 		InningResult inningResult = balls.play(new Balls(Integer.parseInt(numbers)));
-		if(inningResult.isThreeStrike()) {
+		if (inningResult.isThreeStrike()) {
 			isEnd = true;
 		}
 		return inningResult;
